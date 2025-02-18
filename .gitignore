@@ -1,0 +1,39 @@
+### Node.js ###
+# Dependências do Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cache do npm
+.npm/
+
+# Arquivos de ambiente
+.env
+.env.test
+.env.production
+
+# Logs e relatórios
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+debug.log
+output.log
+
+# Diretórios de build
+build/
+dist/
+
+# Cache do TypeScript
+*.tsbuildinfo
+
+# Configuração do editor
+.vscode/
+.idea/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
