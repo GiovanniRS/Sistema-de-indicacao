@@ -9,7 +9,7 @@ import {
   validatorCompiler,
 } from 'fastify-type-provider-zod'
 import { env } from './env'
-import { incritosEventoRoute } from './routes/incritos-evento-route'
+import { participarEventoRoute } from './routes/participar-evento-route'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -34,7 +34,7 @@ app.register(fastifySwaggerUi, {
   routePrefix: '/docs',
 })
 
-app.register(incritosEventoRoute)
+app.register(participarEventoRoute)
 
 app.listen({ port: env.PORT }).then(() => {
   console.log('HTTP server running!')
