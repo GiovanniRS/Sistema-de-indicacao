@@ -12,6 +12,7 @@ export const participarEventoRoute: FastifyPluginAsyncZod = async app => {
         body: z.object({
           nome: z.string(),
           email: z.string().email(),
+          remetente: z.string().nullish(),
         }),
         response: {
           201: z.object({
@@ -21,11 +22,12 @@ export const participarEventoRoute: FastifyPluginAsyncZod = async app => {
       },
     },
     async (request, reply) => {
-      const { nome, email } = request.body
+      const { nome, email, remetente } = request.body
 
       const { idInscrito } = await participarEvento({
         nome,
         email,
+        remetente,
       })
 
       return reply.status(201).send({
