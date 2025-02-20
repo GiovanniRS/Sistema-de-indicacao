@@ -14,6 +14,7 @@ import { clicksConviteRoute } from './routes/clicks-convite-route'
 import { contConviteRoute } from './routes/cont-convite-route'
 import { participarEventoRoute } from './routes/participar-evento-route'
 import { posicaoRankingRoute } from './routes/posicao-ranking-route'
+import { rankingRoute } from './routes/ranking-route'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -43,6 +44,7 @@ app.register(acessarConviteRoute)
 app.register(clicksConviteRoute)
 app.register(contConviteRoute)
 app.register(posicaoRankingRoute)
+app.register(rankingRoute)
 
 app.listen({ port: env.PORT }).then(() => {
   console.log('HTTP server running!')
