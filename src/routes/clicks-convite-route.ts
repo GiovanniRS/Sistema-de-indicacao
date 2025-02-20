@@ -7,8 +7,7 @@ export const clicksConviteRoute: FastifyPluginAsyncZod = async app => {
     '/inscritos/:idInscrito/ranking/clicks',
     {
       schema: {
-        summary:
-          'Acessar quantidade de cliques de inscritos por link de convite',
+        summary: 'Acessar quantidade de cliques nos link de convite',
         tags: ['indicacao'],
         params: z.object({
           idInscrito: z.string(),
