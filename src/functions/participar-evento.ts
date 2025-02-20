@@ -1,3 +1,4 @@
+import { eq } from 'drizzle-orm'
 import { db } from '../drizzle/client'
 import { inscritos } from '../drizzle/schema/inscritos'
 
@@ -10,9 +11,17 @@ export async function participarEvento({
   nome,
   email,
 }: ParticiparEventoParams) {
+  const inscrito = await db
+    .select()
+    .from(inscritos)
+    .where(eq(inscritos.email, email))
+  if (inscrito.length > 0) {
+    return {
+      idInscrito: inscrito[0].id,
+    }
+  }
   const result = await db.insert(inscritos).values({ nome, email }).returning()
-  const inscrito = result[0]
   return {
-    idInscrito: inscrito.id,
+    idInscrito: result[0].id,
   }
 }
