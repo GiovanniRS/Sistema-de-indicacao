@@ -1,12 +1,10 @@
 import { redis } from '../redis/client'
 
-interface ClicksLinkConviteParams {
+interface ClicksConviteParams {
   idInscrito: string
 }
 
-export async function clicksLinkConvite({
-  idInscrito,
-}: ClicksLinkConviteParams) {
+export async function clicksConvite({ idInscrito }: ClicksConviteParams) {
   const cont = await redis.hget('convite:contador-acesso', idInscrito)
 
   return {

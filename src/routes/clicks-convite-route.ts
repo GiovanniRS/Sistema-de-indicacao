@@ -1,9 +1,8 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
-import { env } from '../env'
-import { clicksLinkConvite } from '../functions/clicks-link-convite'
+import { clicksConvite } from '../functions/clicks-convite'
 
-export const clicksLinkConviteRoute: FastifyPluginAsyncZod = async app => {
+export const clicksConviteRoute: FastifyPluginAsyncZod = async app => {
   app.get(
     '/inscritos/:idInscrito/ranking/clicks',
     {
@@ -24,7 +23,7 @@ export const clicksLinkConviteRoute: FastifyPluginAsyncZod = async app => {
     async request => {
       const { idInscrito } = request.params
 
-      const { cont } = await clicksLinkConvite({ idInscrito })
+      const { cont } = await clicksConvite({ idInscrito })
 
       return { cont }
     }

@@ -1,11 +1,9 @@
 import { redis } from '../redis/client'
 
-interface AcessarLinkConviteParams {
+interface AcessarConviteParams {
   idInscrito: string
 }
 
-export async function acessarLinkConvite({
-  idInscrito,
-}: AcessarLinkConviteParams) {
+export async function acessarConvite({ idInscrito }: AcessarConviteParams) {
   await redis.hincrby('convite:contador-acesso', idInscrito, 1)
 }

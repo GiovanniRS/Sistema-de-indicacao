@@ -1,9 +1,9 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
 import { env } from '../env'
-import { acessarLinkConvite } from '../functions/acessar-link-convite'
+import { acessarConvite } from '../functions/acessar-convite'
 
-export const acessarLinkConviteRoute: FastifyPluginAsyncZod = async app => {
+export const acessarConviteRoute: FastifyPluginAsyncZod = async app => {
   app.get(
     '/convite/:idInscrito',
     {
@@ -21,7 +21,7 @@ export const acessarLinkConviteRoute: FastifyPluginAsyncZod = async app => {
     async (request, reply) => {
       const { idInscrito } = request.params
 
-      await acessarLinkConvite({ idInscrito })
+      await acessarConvite({ idInscrito })
 
       const url = new URL(env.WEB_URL)
       url.searchParams.set('remetente', idInscrito)
