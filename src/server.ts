@@ -10,6 +10,7 @@ import {
 } from 'fastify-type-provider-zod'
 import { env } from './env'
 import { acessarLinkConviteRoute } from './routes/acessar-link-convite-route'
+import { clicksLinkConviteRoute } from './routes/clicks-link-convite-route'
 import { participarEventoRoute } from './routes/participar-evento-route'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
@@ -37,6 +38,7 @@ app.register(fastifySwaggerUi, {
 
 app.register(participarEventoRoute)
 app.register(acessarLinkConviteRoute)
+app.register(clicksLinkConviteRoute)
 
 app.listen({ port: env.PORT }).then(() => {
   console.log('HTTP server running!')
